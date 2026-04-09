@@ -1,70 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Formulário de Prontuário</title>
+    <title>Prontuário Eletrônico - Estrutura</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-    <nav class="navbar navbar-dark bg-primary">
+<body class="bg-light">
+
+    <nav class="navbar navbar-dark bg-primary shadow-sm">
         <div class="container-fluid justify-content-center">
             <span class="navbar-brand mb-0 h1">Prontuário Eletrônico</span>
         </div>
     </nav>
 
     <div class="container mt-4">
-        <form>
-            <div class="card mb-4">
+        <form onsubmit="mostrardados(); return false;">
+            
+            <div class="card mb-4 shadow-sm">
                 <div class="card-header bg-info text-white text-center">
-                    Dados do Paciente
+                    <h5 class="mb-0">Dados do Paciente</h5>
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6 mb-3">Nome:<input type="text" class="form-control"></div>
-                        <div class="col-md-6 mb-3">Idade:<input type="number" class="form-control"></div>
-                        <div class="col-md-6 mb-3"></div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Nome Completo</label>
+                            <input id="nome" type="text" class="form-control" placeholder="Digite o nome" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Data de Nascimento</label>
+                            <input id="idade" type="date" class="form-control" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">CPF</label>
+                            <input id="cpf" type="text" class="form-control" placeholder="000.000.000-00" required>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="card mb-4">
-                <div class="card-header bg-info text-white text-center">      
-                Sinais Vitais
+
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header bg-info text-white text-center">
+                    <h5 class="mb-0">Sinais Vitais</h5>
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-3 mb-3">Pressão Arterial:<input type="text" class="form-control" placeholder="Ex: 120/80"></div>
-                        <div class="col-md-3 mb-3">Temperatura:<input type="number" class="form-control" placeholder="Ex: 36.5°C"></div>
-                        <div class="col-md-3 mb-3">Frequência Cardíaca:<input type="text" class="form-control"></div>
-                        <div class="col-md-3 mb-3">Saturação:<input type="text" class="form-control" placeholder="%"></div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Pressão Arterial</label>
+                            <input id="pressao" type="number" class="form-control" placeholder="120/80 mmHg" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Frequência Cardíaca</label>
+                            <input id="frequencia" type="number" class="form-control" placeholder="bpm" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Temperatura</label>
+                            <input id="temperatura" type="number" class="form-control" placeholder="°C" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Saturação O2</label>
+                            <input id="saturacao" type="number" class="form-control" placeholder="%" required>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="card mb-4">
+
+            <div class="card mb-4 shadow-sm">
                 <div class="card-header bg-info text-white text-center">
-                    Evolução do Paciente
+                    <h5 class="mb-0">Evolução do Paciente</h5>
                 </div>
                 <div class="card-body">
-                   <div class="mb-4">Descreva a Evolução:<textarea type="text" class="form-control" rows="4"></textarea></div> 
+                    <div class="mb-3">
+                        <label class="form-label">Relatório de Evolução</label>
+                        <textarea id="relatorio" class="form-control" rows="4" placeholder="Descreva a evolução clínica..."></textarea>
+                    </div>
                 </div>
             </div>
-            <div class="card mb-4">
+
+            <div class="card mb-4 shadow-sm">
                 <div class="card-header bg-info text-white text-center">
-                    Medicação
+                    <h5 class="mb-0">Medicação</h5>
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-6 mb-3">Medicamentos:<input type="text" class="form-control"></div>
-                        <div class="col-md-3 mb-3">Dosagem:<input type="text" class="form-control"></div>
-                        <div class="col-md-3 mb-3">Horário:<input type="time" class="form-control" placeholder="--:--"></div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Medicamento</label>
+                            <input id="medicamento" type="text" class="form-control" placeholder="Nome do remédio" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Dosagem</label>
+                            <input id="dosagem" type="text" class="form-control" placeholder="Ex: 500mg" required>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label class="form-label">Horario</label>
+                            <input id="horario" type="time" class="form-control" required>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <div class="text-end mb-5">
-                <button class="btn btn-primary" type="subimit">Salvar Prontuário</button>
+                <button class="btn btn-primary btn-lg" type="submit">Salvar Prontuário</button>
             </div>
+
         </form>
     </div>
+    <div id="dad" class="alert alert-secondary d-none text-center">
 
+    </div>
+
+
+    <div class="toast position-fixed bottom-0 end-0 p-3" id="toastSucesso">
+        <div class="toast-header">
+            <strong class="me-auto">Sistema</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">
+            Prontuario salvo
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function mostrardados()
+        { 
+            let nome = document.getElementById("nome").value;
+            let idade = document.getElementById("idade").value;
+            let cpf = document.getElementById("cpf").value;
+            let pressao = document.getElementById("pressao").value;
+            let temperatura = document.getElementById("temperatura").value;
+            let frequencia = document.getElementById("frequencia").value;
+            let saturacao = document.getElementById("saturacao").value;
+            let relatorio = document.getElementById("relatorio").value;
+            let medicamento = document.getElementById("medicamento").value;
+            let dosagem = document.getElementById("dosagem").value;
+            let horario = document.getElementById("horario").value;
+
+
+
+            let resultado = `
+           <h5> Prontuário do Paciente</h5>
+           Nome: ${nome} <br>
+           Idade: ${idade} <br>
+           Cpf: ${cpf}<br>
+           Pressão Arterial: ${pressao}<br>
+           Temperatura: ${temperatura}<br>
+           Frequência: ${frequencia}<br>
+           saturação: ${saturacao}<br>
+           Evolução: ${relatorio}<br>
+           Medicamento: ${medicamento}<br>
+           Dosagem:${dosagem}<br>
+           Horário: ${horario}<br>
+           `;
+
+    
+           
+           const dados = document.getElementById("dad");
+
+           dados.innerHTML = resultado;
+           
+           dados.classList.remove("d-none");
+           
+            let toast = new bootstrap.Toast(document.getElementById('toastSucesso'))
+            toast.show()
+        }
+    </script>
 </body>
 </html>
